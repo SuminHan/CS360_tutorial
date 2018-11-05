@@ -12,7 +12,13 @@ First run the <b>run_on_my.sql</b> on mysql manually, or simply by
 
 `$ sudo mysql < run_on_my.sql`
 
-This will create database called <b>cs360_tutorial</b> and create table called <b>user_tbl</b> while creating new user called 'tester'@'localhost' with password '1234'. Then, you can run the server as below.
+This will create database called <b>cs360_tutorial</b> and create table called <b>user_tbl</b> while creating new user called 'tester'@'localhost' with password '1234'.
+
+Then, install the node modules:
+
+    $ npm install
+
+Now, run the server.
 
     $ node app.js
     Example app listening on port 3000!
