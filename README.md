@@ -30,4 +30,4 @@ Checkout your [http://localhost:3000/](http://localhost:3000/).
 ### Basic functions
 * localhost:3000/: sends "index.html" which includes submit form.
 * localhost:3000/listAPI: sends raw json format data from "select * from user_tbl"
-* localhost:3000/listPretty: give into list using JQquery ajax. check javascript code.
+* localhost:3000/listPretty: give into list using JQuery ajax. check javascript code.
