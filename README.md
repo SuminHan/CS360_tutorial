@@ -1,7 +1,9 @@
 # CS360 Tutorial Server
 
 Author: smhan@dbserver.kaist.ac.kr
+
 This is a prototype code for new starters who will build their application based on
+
 * [Node.js](https://nodejs.org/) + [Express.js](https://expressjs.com/)
 * [MySQL](https://dev.mysql.com/downloads/) community version
 * (optional) [JQuery](https://jquery.com/)
