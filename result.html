@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" type="text/css" href="result_pretty.css">
+</head>
+<body>
+
+<table id="mytable" border="1" cellspacing="3">
+	<tr>
+		<th>ID</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Gender</th>
+	</tr>
+	<tbody></tbody>
+</table>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script>
+
+$(function() {
+	console.log( "ready!" );
+	$.ajax({
+		url: "/listAPI",
+		success: function( result ) {
+			for (var i in result){
+				var item = result[i];
+				$('#mytable > tbody:last').append('<tr>' + 
+					'<td>' + item.id + '</td>' + 
+					'<td>' + item.first_name + '</td>' + 
+					'<td>' + item.last_name + '</td>' + 
+					'<td>' + item.gender + '</td></tr>');
+			}
+		}
+	});
+});
+</script>
+</body>
+</html>
