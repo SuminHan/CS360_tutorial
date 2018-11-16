@@ -8,7 +8,7 @@ var connection = mysql.createConnection({
     port     : 3306,
     user     : 'brogrammers',
     password : '1234',
-    database : 'cs360_tutorial',
+    database : 'brogrammers_db_',
 });
 
 connection.connect(); // Connection to MySQL
