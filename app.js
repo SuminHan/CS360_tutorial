@@ -5,7 +5,7 @@ var mysql = require('mysql'); // MySQL module on node.js
 
 var connection = mysql.createConnection({
     host     : 'localhost',
-    port     : 3306,
+    port     : 3000,
     user     : 'brogrammers',
     password : '1234',
     database : 'brogrammers_db_',
