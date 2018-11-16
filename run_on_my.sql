@@ -7,6 +7,6 @@ CREATE TABLE IF NOT EXISTS user_tbl (
 	gender VARCHAR(32) NOT NULL,
 	PRIMARY KEY (id)
 );
-CREATE USER IF NOT EXISTS 'tester'@'localhost' IDENTIFIED BY '1234';
-GRANT ALL PRIVILEGES ON cs360_tutorial.* TO 'tester'@'localhost';
-ALTER USER 'tester'@'localhost' IDENTIFIED WITH mysql_native_password BY '1234';
+CREATE USER IF NOT EXISTS 'bolatashim'@'localhost' IDENTIFIED BY '1234';
+GRANT ALL PRIVILEGES ON cs360_tutorial.* TO 'bolatashim'@'localhost';
+ALTER USER 'bolatashim'@'localhost' IDENTIFIED WITH mysql_native_password BY '1234';

@@ -6,7 +6,7 @@ var mysql = require('mysql'); // MySQL module on node.js
 var connection = mysql.createConnection({
     host     : 'localhost',
     port     : 3306,
-    user     : 'tester',
+    user     : 'bolatashim',
     password : '1234',
     database : 'cs360_tutorial',
 });
