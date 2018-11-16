@@ -1,20 +1,10 @@
-# CS360 Tutorial Server
-
-Author: smhan@dbserver.kaist.ac.kr
-
-This is a prototype code for new starters who will build their application based on
-
-* [Node.js](https://nodejs.org/) + [Express.js](https://expressjs.com/)
-* [MySQL](https://dev.mysql.com/downloads/) community version
-* (optional) [JQuery](https://jquery.com/)
-
 ### How to use?
 
-First run the <b>run_on_my.sql</b> on mysql manually, or simply by
+#### build the tables
+`$ sudo mysql < sql/tables.sql`
+`$ sudo mysql < sql/users.sql`
 
-`$ sudo mysql < run_on_my.sql`
-
-This will create database called <b>cs360_tutorial</b> and create table called <b>user_tbl</b> while creating new user called 'tester'@'localhost' with password '1234'.
+This will create database called <b>brogrammers_db</b> and create tables for the db while creating new user called 'brogrammers'@'localhost' with password '1234'.
 
 Then, install the node modules:
 
