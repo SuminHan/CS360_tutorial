@@ -1,9 +1,9 @@
 ### How to use?
 
 #### build the tables
-`$ sudo mysql < sql/tables.sql`
-`$ sudo mysql < sql/users.sql`
-
+    $ sudo mysql < sql/tables.sql
+    $ sudo mysql < sql/users.sql
+    
 This will create database called <b>brogrammers_db</b> and create tables for the db while creating new user called 'brogrammers'@'localhost' with password '1234'.
 
 Then, install the node modules:
