@@ -48,8 +48,10 @@ CREATE TABLE IF NOT EXISTS EVENT (
 	host_id bigint(20) unsigned NOT NULL,
 	venue_id bigint(20) unsigned NOT NULL,
 	content VARCHAR(4095),
+	is_approved BOOLEAN DEFAULT 0,
 	start_date DATETIME,
 	end_date DATETIME,
+	
 	
 	PRIMARY KEY (event_id),
 	FOREIGN KEY(host_id) REFERENCES DB_USER(id_num),
