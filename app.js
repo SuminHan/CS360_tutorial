@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 // "node app.js" running on port 3000
 app.listen(3000, function () {
-	console.log('Example app listening on port 3000!');
+	console.log('Brogrammers listening on port 3000!');
 });
 
 // base url action: "http://localhost/" -> send "index.html" file.
@@ -65,4 +65,70 @@ app.get('/listPretty', function (req, res) {
 });
 
 
+/*
+	Implemented by Mustafa
+	Issues: Cannot take event id from the table
+*/
 
+////------------------ADMIN PART------------------////
+
+app.get('/adminAPI', function (req, res) {
+	connection.query('select * from EVENT', function (err, rows) {
+		if (err) throw err;
+		res.send(rows);
+	})
+});
+
+// adminview refers to "/admin_view.html"
+app.get('/adminview', function(req, res){
+	res.sendFile(__dirname + "/admin_view.html");
+});
+
+// posts approval to db
+app.post('/approval_api', function (req, res) {
+	console.log(req.body); // log to the node.js server
+
+	queryStr = 'UPDATE EVENT SET is_approved = 1 WHERE ' + 
+	'event_id = ' + req.body.event_id + ';';
+
+	console.log("Insert query: " + queryStr); // you may check the queryStr
+
+	connection.query(queryStr, function (err, rows) { // send query to MySQL
+		if (err) throw err;
+		console.log(rows); // log to check MySQL insertion result
+		res.redirect('/'); // after submission, redirect to the base url
+	})
+});
+
+////------------------USER PART------------------////
+
+
+// userview refers to "/user_view.html"
+app.get('/userview', function(req, res){
+	res.sendFile(__dirname + "/user_view.html");
+});
+
+// brings events created by that user
+app.get('/usereventAPI', function (req, res) {
+	connection.query('select * from EVENT where host_id = 1 ',
+	 function (err, rows) {
+		if (err) throw err;
+		res.send(rows);
+	})
+});
+
+// deletes event created by user
+app.post('/deletion_api', function (req, res) {
+	console.log(req.body); // log to the node.js server
+
+	queryStr = 'DELETE FROM EVENT WHERE ' + 
+	'event_id = ' + req.body.event_id + ';';
+
+	console.log("Deletion query: " + queryStr); // you may check the queryStr
+
+	connection.query(queryStr, function (err, rows) { // send query to MySQL
+		if (err) throw err;
+		console.log(rows); // log to check MySQL insertion result
+		res.redirect('/'); // after submission, redirect to the base url
+	})
+});

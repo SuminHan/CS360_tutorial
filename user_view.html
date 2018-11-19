@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>
+	AdminView
+</title>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="result_pretty.css">
+</head>
+
+
+<div class="container">
+        <h3> This is Menu </h3>
+
+        <a href="/">Home</a>
+        <a href="/adminview">Admin</a>
+        <a href="/userview">User</a>
+        <a href="/addevent">Add Event</a>
+</div>
+
+<body>
+
+<table id="mytable" border="1" cellspacing="3">
+	<tr>
+		<th>event_id</th>
+		<th>host_id</th>
+		<th>venue_id</th>
+		<th>content</th>
+        <th>is_approved</th>
+        <th>delete</th>
+	</tr>
+	<tbody></tbody>
+</table>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+</script>
+
+
+<script>
+$(function() {
+	console.log( "ready!" );
+	$.ajax({
+		url: "/usereventAPI",
+		success: function( result ) {
+			for (var i in result){
+                var item = result[i];
+                if(item.is_approved)
+                {
+                    $('#mytable > tbody:last').append(
+                    '<tr>' + 
+					'<td>' + item.event_id + '</td>' + 
+					'<td>' + item.host_id + '</td>' + 
+					'<td>' + item.venue_id + '</td>' + 
+                    '<td>' + item.content + '</td>' +
+                    '<td> Approved! </td>' +
+                    '<td> DeleteButton </td>' +
+					'</tr>');
+                }
+                else
+                {
+                    $('#mytable > tbody:last').append(
+                    '<tr>' + 
+					'<td>' + item.event_id + '</td>' + 
+					'<td>' + item.host_id + '</td>' + 
+					'<td>' + item.venue_id + '</td>' + 
+                    '<td>' + item.content + '</td>' +
+                    '<td> Not Approved :( </td>' +
+                    '<td> DeleteButton </td>' +
+					'</tr>');
+                }
+				
+			}
+		}
+	});
+});
+</script>
+
+
+</body>
+</html>

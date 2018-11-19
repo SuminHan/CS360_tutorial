@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>
+	AdminView
+</title>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="result_pretty.css">
+</head>
+
+
+<body>
+
+<table id="mytable" border="1" cellspacing="3">
+	<tr>
+		<th>event_id</th>
+		<th>host_id</th>
+		<th>venue_id</th>
+		<th>content</th>
+		<th>is_approved</th>
+	</tr>
+	<tbody></tbody>
+</table>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+</script>
+
+
+<script>
+$(function() {
+	console.log( "ready!" );
+	$.ajax({
+		url: "/adminAPI",
+		success: function( result ) {
+			for (var i in result){
+                var item = result[i];
+                if(item.is_approved)
+                {
+                    $('#mytable > tbody:last').append(
+                    '<tr>' + 
+					'<td>' + item.event_id + '</td>' + 
+					'<td>' + item.host_id + '</td>' + 
+					'<td>' + item.venue_id + '</td>' + 
+                    '<td>' + item.content + '</td>' +
+					'<td> Approved! </td>' +
+					'</tr>');
+                }
+                else
+                {
+                    $('#mytable > tbody:last').append(
+                    '<tr>' + '<form action="/approval_api" method="POST">' +
+					'<td name="event_id">' + item.event_id + '</td>' + // How to pass event id?
+					'<td>' + item.host_id + '</td>' + 
+					'<td>' + item.venue_id + '</td>' + 
+                    '<td>' + item.content + '</td>' + 
+                    '<td>' +
+                    '<input onclick="alert();" type="submit" value="Submit">' +
+                    '</td>' + '</form>' + '</tr>');
+                }
+				
+			}
+		}
+	});
+});
+</script>
+
+</body>
+</html>
