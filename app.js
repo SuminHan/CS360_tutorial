@@ -5,7 +5,7 @@ var mysql = require('mysql'); // MySQL module on node.js
 
 var connection = mysql.createConnection({
     host     : 'localhost',
-    port     : 3000,
+    port     : 3306,
     user     : 'brogrammers',
     password : '1234',
     database : 'brogrammers_db_',
@@ -63,3 +63,6 @@ app.get('/listAPI', function (req, res) {
 app.get('/listPretty', function (req, res) {
 	res.sendFile(__dirname + "/result.html");
 });
+
+
+
